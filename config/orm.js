@@ -27,26 +27,68 @@ function objToSql(ob) {
 var orm = {
 	// selects all burgers
 	selectAll: function(tableInput, cb) {
-		// constructing the query in MYSQL syntax.
-		// trying to dynamically switch out the input
-		var queryString = 'SELECT * FROM ' + tableInput + ';';
+		// Construct the query string that returns all rows from the target table
+		var queryString = "SELECT * FROM " + tableInput + ";";
 
-		// performs the actual query
+		// Perform the database query
 		connection.query(queryString, function(err, result) {
-			if(err){
+			if (err) {
 				throw err;
 			}
 
-			// returns the results in a callback
+			// Return results in callback
 			cb(result);
-		})
-	}
+		});
+	},
 
 	// inserts a new burger
 	
+	insertOne: function(table, cols, vals, cb) {
+
+		var queryString = "INSERT INTO " + table;
+
+		queryString += " (";
+		queryString += cols.toString();
+		queryString += ") ";
+		queryString += "VALUES (";
+		queryString += printQuestionMarks(vals.length);
+		queryString += ") ";
+
+		// console.log(queryString);
+
+		// Perform the database query
+		connection.query(queryString, vals, function(err, result) {
+			if (err) {
+				throw err;
+			}
+
+			// Return results in callback
+			cb(result);
+		});
+	},
 
 	// updates an existing burger
+	updateOne: function(table, objColVals, condition, cb) {
+		// Construct the query string that updates a single entry in the target table
+		var queryString = "UPDATE " + table;
 
+		queryString += " SET ";
+		queryString += objToSql(objColVals);
+		queryString += " WHERE ";
+		queryString += condition;
+
+		// console.log(queryString);
+
+		// Perform the database query
+		connection.query(queryString, function(err, result) {
+			if (err) {
+				throw err;
+			}
+
+			// Return results in callback
+			cb(result);
+		});
+	}
 
 } // === END orm object
 
