@@ -13,4 +13,4 @@ Using aa custom ORM, the app has 3 basic CRUD functions:
 
 ### Misc comments:
 
-the application is incomplete. Still need to complete the eat function.
+the application is incomplete. Still need to complete the eat function. Will also soon deploy to heroku.
