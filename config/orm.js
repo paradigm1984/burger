@@ -1,5 +1,5 @@
 
-var connection = require('../config/connections.js');
+var connection = require("../config/connections.js");
 
 // function to help generate mysql syntax
 function printQuestionMarks(num) {
@@ -38,6 +38,7 @@ var orm = {
 
 			// Return results in callback
 			cb(result);
+			// console.log(result);
 		});
 	},
 
@@ -64,12 +65,17 @@ var orm = {
 
 			// Return results in callback
 			cb(result);
+		
 		});
 	},
 
 	// updates an existing burger
 	updateOne: function(table, objColVals, condition, cb) {
 		// Construct the query string that updates a single entry in the target table
+		console.log(objToSql);
+		console.log(objColVals);
+		console.log(condition);
+
 		var queryString = "UPDATE " + table;
 
 		queryString += " SET ";
@@ -87,6 +93,7 @@ var orm = {
 
 			// Return results in callback
 			cb(result);
+			console.log(result);
 		});
 	}
 

@@ -6,9 +6,9 @@
 			<div class="col s6">
 			<h2 class="not-devoured"> Not Devoured! </h2>
 			{{#each burgers}}
-			{{#unless this.devoured}}
+			{{#unless this.eaten}}
 				<div>
-					<form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+					<form action="/burgers/{{this.id}}" method="POST">
 						<button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
 					</form>
 				</div>
@@ -19,7 +19,7 @@
 			<div class="col s6">
 			<h2 class="devoured"> Devoured! </h2>
 			{{#each burgers}}
-			{{#if this.devoured}}
+			{{#if this.eaten}}
 				<div class='burgerEaten'>
 					<div>
 					{{this.burger_name}}
