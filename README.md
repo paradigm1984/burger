@@ -8,10 +8,7 @@ Using aa custom ORM, the app has 3 basic CRUD functions:
   1. READ all entries from the MySQL database and display them to the DOM using Handlebars.
   2. UPDATE a selected burger by clicking "Eat It".
   3. CREATE a new burger using the "Place Order" form.
-
-### Link:
-https://paradigm1984.github.io/burger/
-
+  
 ### Technologies used:
 1. HTML
 2. CSS
