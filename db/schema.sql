@@ -7,7 +7,7 @@ USE burger_db;
 CREATE TABLE burgers (
 	id int AUTO_INCREMENT NOT NULL,
 	burger_name VARCHAR(55) NOT NULL,
-    eaten tinyint(1) default 0,
+    eaten BOOLEAN DEFAULT false,
     date TIMESTAMP,
 	PRIMARY KEY (id)
 );

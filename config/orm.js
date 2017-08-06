@@ -70,30 +70,21 @@ var orm = {
 	},
 
 	// updates an existing burger
-	updateOne: function(table, objColVals, condition, cb) {
+	updateOne: function(vals, condition, cb) {
 		// Construct the query string that updates a single entry in the target table
-		console.log(objToSql);
-		console.log(objColVals);
-		console.log(condition);
+		//console.log(objToSql);
+		console.log("vals: " + vals);
+		console.log("condition: " + condition);
+		//console.log(condition);
 
-		var queryString = "UPDATE " + table;
-
-		queryString += " SET ";
-		queryString += objToSql(objColVals);
-		queryString += " WHERE ";
-		queryString += condition;
-
-		// console.log(queryString);
-
-		// Perform the database query
-		connection.query(queryString, function(err, result) {
+		connection.query("UPDATE burgers SET ? WHERE ?",[{eaten:vals}, {id:condition}], function(err, result) {
 			if (err) {
 				throw err;
 			}
 
 			// Return results in callback
 			cb(result);
-			console.log(result);
+
 		});
 	}
 

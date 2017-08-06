@@ -9,7 +9,7 @@
 			{{#unless this.eaten}}
 				<div>
 					<form action="/burgers/{{this.id}}" method="POST">
-						<button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+						<button type="submit" class='burgerAvailable'> {{this.burger_name}} </button>
 					</form>
 				</div>
 				{{/unless}}
@@ -25,6 +25,9 @@
 					{{this.burger_name}}
 					</div>
 				</div>
+				
+				<!-- Style and add functionality to this button!!!!!! -->
+				<button class="delete-burger"> Clear </button>
 				{{/if}}
 				{{/each}}
 			</div>
@@ -35,10 +38,11 @@
 <h2>Add A Burger Option</h2>
 
 <div class="row">
-<div class="col s12">
-<form action="/burgers" method="POST">
-<input type="text" id="name" name="burger_name" placeholder=" Whats your favorite??? ">
-<button type="submit" class="addBurgerButton"> Add a Burger </button>
-</form>
+	<div class="col s12">
+		<form action="/burgers" method="POST">
+			<input class="new-burger-name" type="text" id="name" name="burger_name" placeholder=" Whats your favorite??? ">
+			<button type="submit" class="addBurgerButton"> Add a Burger </button>
+		</form>
+	</div>
 </div>
-</div>
+

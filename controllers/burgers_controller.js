@@ -6,6 +6,11 @@ var burger = require("../models/burger.js");
 var methodOverride = require("method-override");;
 
 
+
+router.use(bodyParser.json());
+router.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+router.use(bodyParser.urlencoded({ extended: true }));
+
 // load all burgers that exist - works
 router.get('/', function(req, res) {
 	burger.selectAll(function(data) {
@@ -30,11 +35,10 @@ router.post('/burgers', function(req, res) {
 
 // moves a burger to devoured - doesnt work
 router.post('/burgers/:id', function(req, res){
-	var condition = 'id = ' + req.params.id;
+	var condition = req.params.id;
+	console.log(condition);
 
-	console.log('condition ', condition);
-
-	burger.updateOne({'eaten': req.params.eaten}, condition, function(data){
+	burger.updateOne(true, condition, function(data){
 		res.redirect('/');
 	});
 });
