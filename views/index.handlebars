@@ -20,14 +20,11 @@
 			<h2 class="devoured"> Devoured! </h2>
 			{{#each burgers}}
 			{{#if this.eaten}}
-				<div class='burgerEaten'>
-					<div>
-					{{this.burger_name}}
-					</div>
-				</div>
-				
-				<!-- Style and add functionality to this button!!!!!! -->
-				<button class="delete-burger"> Clear </button>
+				<div>
+					<form action="/delete/{{this.id}}" method="POST">
+						<button type="submit" class='burger-eaten'> {{this.burger_name}} </button>
+					</form>
+				</div>	
 				{{/if}}
 				{{/each}}
 			</div>

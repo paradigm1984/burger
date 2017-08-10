@@ -19,7 +19,13 @@ var burger = {
 		orm.updateOne(vals, condition, function(res) {
 			cb(res); // callback result
 		})
+	},
+	deleteOne: function(condition, cb) {
+		orm.deleteOne(condition, function(res) {
+			cb(res); // callback result
+		})
 	}
+
 }; 
 
 module.exports = burger;

@@ -33,14 +33,25 @@ router.post('/burgers', function(req, res) {
 	});
 });
 
-// moves a burger to devoured - doesnt work
+// moves a burger to devoured - works
 router.post('/burgers/:id', function(req, res){
 	var condition = req.params.id;
-	console.log(condition);
+	// console.log(condition);
 
 	burger.updateOne(true, condition, function(data){
 		res.redirect('/');
 	});
 });
+
+// deletes a devoured burger - doesnt work
+router.post('/delete/:id', function(req, res){
+	var condition = req.params.id;
+	// console.log(condition);
+
+	burger.deleteOne(condition, function(data){
+		res.redirect('/');
+	});
+});
+
 
 module.exports = router;
