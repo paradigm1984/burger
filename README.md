@@ -24,9 +24,25 @@ A CRUD web application. The user can create, update and delete items from a list
 
 ## Usage
 
+The user first lands on the page. there is already data in the MYSQL database. 
 
+![alt text](1.png "first")
 
-![alt text](.png "")
+The user can make a "burger" and name it.
+
+![alt text](2.png "make burger")
+
+The burger gets updated to the DOM.
+
+![alt text](3.png "update burger")
+
+The user can move the burger into the devoured list by clicking on it. 
+
+![alt text](4.png "devour burger")
+
+Finally, the user can delete the burger entirely from the database by clicking on it once more.  
+
+![alt text](5.png "delete burger")
 
 ### Link to the live site
 
